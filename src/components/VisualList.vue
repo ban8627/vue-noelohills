@@ -1,6 +1,8 @@
 <template>
    <a :href="vlink">
-      <div class="visual-img bg" :style="{backgroundImage:'url(' + require(`@/assets/images/${vimg}`) + ')'}"></div>
+      <div class="visual-img bg" 
+      :style="{backgroundImage:'url('+ require(`@/assets/images/${vimg}`) +')'}">
+      </div>
       <div class="visual-txt">
         <h3 class="visual-title">{{vtitle}}</h3>
         <span class="visual-desc" v-html="vtxt">
