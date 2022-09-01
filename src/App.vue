@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 모바일 메뉴 -->
-    <MbDiv v-bind:mbmenu="mbMenuData"/>
+    <MbDiv/>
     <!-- 배너 -->
     <BannerView />
     <!-- 내용 -->
@@ -9,12 +9,12 @@
       <!-- 상단 -->
       <header class="header">
         <div class="inner">
-  
+
           <button class="mb-bt"></button>
-  
+
           <a href="#" class="logo"></a>
           <div class="gnb">
-  
+
             <ul class="menu clearfix">
               <li>
                 <a href="">SHOP</a>
@@ -60,7 +60,7 @@
                 </ul>
               </li>
             </ul>
-  
+
           </div>
           <div class="member">
             <ul class="member-list clearfix">
@@ -169,68 +169,68 @@
 
       });
 
-      const mbMenuData = [
-        {
-          menuType: 'S',
-          mainText: 'SHOP',
-          mainLink: '',
-          subArr: [
-            {link: '#', title: 'ALL PRODUCT'},
-            {link: '#', title: 'NEWBORN'},
-            {link: '#', title: 'BABY'},
-            {link: '#', title: 'FAMILY'},
-            {link: '#', title: 'BATH GOODS'},
-            {link: '#', title: 'PRESENTS'}
-          ]
-        },
-        {
-          menuType: 'S',
-          mainText: 'ABOUT',
-          mainLink: '',
-          subArr: [
-            {link: '#', title: 'BRAND STORY'},
-            {link: '#', title: 'WHO WE ARE'},
-            {link: '#', title: 'MAKE A WISH'},
-            {link: '#', title: 'PRESS'}
-          ]
-        },
-        {
-          menuType: 'S',
-          mainText: 'TRUST',
-          mainLink: '',
-          subArr: [
-            {link: '#', title: 'FOOD GRADE'},
-            {link: '#', title: 'PENTACERA™'},
-            {link: '#', title: 'BABY SKINCARE'},
-            {link: '#', title: 'CERTIFICATIONS'},
-            {link: '#', title: 'INGREDIENT'},
-          ]
-        },
-        {
-          menuType: 'A',
-          mainText: 'STOCKISTS',
-          mainLink: 'a.html',
-          subArr: []
-        },
-        {
-          menuType: 'A',
-          mainText: 'REVIEW',
-          mainLink: 'b.html',
-          subArr: []
-        },
-        {
-          menuType: 'S',
-          mainText: 'BENEFITS',
-          mainLink: '',
-          subArr: [
-            {link: '#', title: 'EVENTS'},
-            {link: '#', title: 'MEMBERS'},
-          ]
-        },
-      ];
+      // const mbMenuData = [
+      //   {
+      //     menuType: 'S',
+      //     mainText: 'SHOP',
+      //     mainLink: '',
+      //     subArr: [
+      //       {link: '#', title: 'ALL PRODUCT'},
+      //       {link: '#', title: 'NEWBORN'},
+      //       {link: '#', title: 'BABY'},
+      //       {link: '#', title: 'FAMILY'},
+      //       {link: '#', title: 'BATH GOODS'},
+      //       {link: '#', title: 'PRESENTS'}
+      //     ]
+      //   },
+      //   {
+      //     menuType: 'S',
+      //     mainText: 'ABOUT',
+      //     mainLink: '',
+      //     subArr: [
+      //       {link: '#', title: 'BRAND STORY'},
+      //       {link: '#', title: 'WHO WE ARE'},
+      //       {link: '#', title: 'MAKE A WISH'},
+      //       {link: '#', title: 'PRESS'}
+      //     ]
+      //   },
+      //   {
+      //     menuType: 'S',
+      //     mainText: 'TRUST',
+      //     mainLink: '',
+      //     subArr: [
+      //       {link: '#', title: 'FOOD GRADE'},
+      //       {link: '#', title: 'PENTACERA™'},
+      //       {link: '#', title: 'BABY SKINCARE'},
+      //       {link: '#', title: 'CERTIFICATIONS'},
+      //       {link: '#', title: 'INGREDIENT'},
+      //     ]
+      //   },
+      //   {
+      //     menuType: 'A',
+      //     mainText: 'STOCKISTS',
+      //     mainLink: 'a.html',
+      //     subArr: []
+      //   },
+      //   {
+      //     menuType: 'A',
+      //     mainText: 'REVIEW',
+      //     mainLink: 'b.html',
+      //     subArr: []
+      //   },
+      //   {
+      //     menuType: 'S',
+      //     mainText: 'BENEFITS',
+      //     mainLink: '',
+      //     subArr: [
+      //       {link: '#', title: 'EVENTS'},
+      //       {link: '#', title: 'MEMBERS'},
+      //     ]
+      //   },
+      // ];
       
       return {
-        mbMenuData
+        
       }
     }
   }
