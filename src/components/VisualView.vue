@@ -29,13 +29,14 @@
   } from "vue";
 
   import {
-    Autoplay
+    Autoplay,Pagination
   } from 'swiper';
   import {
     Swiper,
     SwiperSlide
   } from 'swiper/vue';
   import 'swiper/css';
+  import 'swiper/css/pagination';
   import {
     useStore
   } from 'vuex';
@@ -58,7 +59,7 @@
       return {
         onSwiper,
         onSlideChange,
-        modules: [Autoplay],
+        modules: [Autoplay,Pagination],
         slideData
       }
     }

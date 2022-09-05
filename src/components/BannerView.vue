@@ -2,11 +2,12 @@
   <div class="banner">
     <Swiper
     :modules="modules"
+    :loop="true"
     :autoplay="{
       delay:2000,
       disableOnIteraction:false
       }"
-      :pagination ="{
+      :pagination="{
         el:'.sw-banner-pg',
         type:'bullets'
         }"
