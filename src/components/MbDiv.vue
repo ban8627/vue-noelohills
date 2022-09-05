@@ -8,21 +8,15 @@
       </div>
       <div class="mb-wrap">
         <ul class="mb-menu">
-
-          <li v-for="(item, index) in mbmenu" v-bind:key="index">
+          <li v-for="(item, index) in mbMenuData" :key="index">
             <span class="mb-mainmenu" v-if=" item.menuType == 'S' ">{{item.mainText}}</span>
-            <a v-bind:href="item.mainLink" class="mb-mainmenu" v-if=" item.menuType == 'A' ">{{item.mainText}}</a>
-            
-            <ul class="mb-submenu" v-if="item.menuType == 'S'" >
-              
-              <li v-for="(subitem, subindex) in item.subArr" v-bind:key="subindex">
-                <a v-bind:href="subitem.link">{{subitem.title}}</a>
+            <a :href="item.mainLink" class="mb-mainmenu" v-if=" item.menuType == 'A' ">{{item.mainText}}</a>
+            <ul class="mb-submenu" v-if="item.menuType == 'S'">
+              <li v-for="(subitem, subindex) in item.subArr" :key="subindex">
+                <a :href="subitem.link">{{subitem.title}}</a>
               </li>
-
             </ul>
-
           </li>
-
         </ul>
       </div>
     </div>
@@ -32,22 +26,23 @@
 <script>
   import {
     computed,
-    onMounted
+    onUpdated
   } from 'vue';
   import $ from 'jquery';
-  import {useStore} from 'vuex'
+  import {
+    useStore
+  } from 'vuex'
 
   export default {
-    // props: ['mbmenu'],
-
     setup() {
       // vuex 에 기능을 사용하기 위해서 참조 객체를 만든다
       // store 변수를 통해 접근하여 기능을 실행
       const store = useStore();
       // store 의  state(데이터)는 수시로 변경되므로 computed 로 감시
-      const mbmenu = computed(()=>store.getters.getmbMenuData)
+      const mbMenuData = computed(() => store.getters.getmbMenuData)
+      // store 의 action 호출
       // 화면에 html 의 구성이 완료되면
-      onMounted(() => {
+      onUpdated(() => {
         // 모바일 메뉴
         let mb_div = $('.mb-div');
         // 모바일 보기 버튼 기능
@@ -100,7 +95,7 @@
         });
       });
       return {
-        mbmenu
+        mbMenuData
       }
     }
   }

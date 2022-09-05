@@ -1,41 +1,54 @@
 <template>
   <div class="banner">
-    <div class="swiper-container sw-banner">
-      <!-- 슬라이드 내용 -->
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <a href="#" class="banner-1"></a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="banner-2"></a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="banner-3"></a>
-        </div>
-
-      </div>
-
-      <!-- 슬라이드 콘트롤 -->
+    <Swiper
+    :modules="modules"
+    :autoplay="{
+      delay:2000,
+      disableOnIteraction:false
+      }"
+      :pagination ="{
+        el:'.sw-banner-pg',
+        type:'bullets'
+        }"
+        class="sw-banner">
+      <SwiperSlide>
+        <a href="#" class="banner-1"></a>
+      </SwiperSlide>
+      <SwiperSlide>
+        <a href="#" class="banner-2"></a>
+      </SwiperSlide>
+      <SwiperSlide>
+        <a href="#" class="banner-3"></a>
+      </SwiperSlide>
+    </Swiper>
+    <!-- 슬라이드 콘트롤 -->
       <div class="sw-banner-control">
         <!-- 페이지네이션 -->
         <div class="sw-banner-pg"></div>
       </div>
-
-    </div>
     <button class="banner-close"></button>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onUpdated, ref } from 'vue';
 import $ from 'jquery';
-
+ import {
+    Autoplay,Pagination,EffectFade
+  } from 'swiper';
+  import {
+    Swiper,
+    SwiperSlide
+  } from 'swiper/vue';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
 export default {
+  components:{
+    Swiper,
+    SwiperSlide
+  },
   setup() {
-    onMounted( () => {
+    onUpdated( () => {
       // banner 의 높이값 px
       let fixY = ref(0);
       fixY.value = $('.banner').height();      
@@ -49,8 +62,16 @@ export default {
       });
 
     });
-
-    return {      
+      const onSwiper = () => {
+      };
+      const onSlideChange = () => {
+      };
+    return {   
+      onSwiper,
+      onSlideChange,
+      modules:[
+        Autoplay,Pagination,EffectFade
+      ]
     }
   }
 }
@@ -63,15 +84,15 @@ export default {
 .banner {
   position: relative;
   display: block;
-  height: 50px;
+  height: 60px;
   background-color: #ffcc00;
 }
 .banner .sw-banner {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 .banner .sw-banner .swiper-slide a {
-  position: relative;
   display: block;
   height: 100%;
 }
@@ -90,7 +111,10 @@ export default {
   transform: translateX(-50%);
   top: 28px;
   display: block;
+  width:60px;
+  height:8px;
   z-index: 9;
+  border:2px solid #000;
   /* pagination bullet css 수정 */
 }
 .banner .sw-banner .sw-banner-control .sw-banner-pg .swiper-pagination-bullet {
