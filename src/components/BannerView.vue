@@ -51,15 +51,17 @@ export default {
   setup() {
     onUpdated( () => {
       // banner 의 높이값 px
+      let banner = $('.banner');
       let fixY = ref(0);
-      fixY.value = $('.banner').height();      
+      fixY.value = banner.height();
+      
 
       // 상단 배너 닫기 기능
       let banner_close = $('.banner-close');
       banner_close.click(function(){
         // 배너가 보여지지 않으므로 값을 제거
         fixY.value = 0;
-        $('.banner').slideUp(300);
+        banner.slideUp(300);
       });
 
     });

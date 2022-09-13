@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ModalView/>
     <!-- 모바일 메뉴 -->
     <MbDiv />
     <!-- 배너 -->
@@ -22,6 +23,7 @@
 <script>
 import {useStore} from 'vuex'
   import MbDiv from '@/components/MbDiv.vue';
+  import ModalView from '@/components/ModalView.vue';
   import BannerView from '@/components/BannerView.vue';
   import VisualView from '@/components/VisualView.vue';
   import CategoryView from '@/components/CategoryView.vue';
@@ -32,6 +34,7 @@ import {useStore} from 'vuex'
   export default {
     name: 'App',
     components: {
+      ModalView,
       HeaderView,
       MbDiv,
       BannerView,
